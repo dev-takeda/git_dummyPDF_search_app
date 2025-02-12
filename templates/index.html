@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Search APP</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body>
+    <header class="header">
+        <h1 class="title">PDF Search アプリ</h1>
+    </header>
+    <main>
+        <div class="search-group">
+            <div class="sidebar">
+                <div class="subject-class">
+                    <h2 class="subtitle">科目区分一覧</h2>
+                    <ul class="list">
+                        {% for subject in subjects %}
+                        <li class="list-item">
+                            <button class="filter-btn subject" data-type="subject" data-value="{{ subject }}">{{ subject }}</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="tag-class">
+                    <h2 class="subtitle">タグ一覧</h2>
+                    <ul class="list">
+                        {% for tag in tags %}
+                        <li class="list-item">
+                            <button class="filter-btn tag" data-type="tag" data-value="{{ tag }}">{{ tag }}</button>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="right-container">
+                <div class="search-box">
+                    <h2 class="subtitle">キーワード検索</h2>
+                    <input type="text" id="search-input" class="search-item" placeholder="キーワード入力">
+                    <button id="search-btn" class="kyw-search-btn">検索</button>
+                </div>
+                <div class="results-box">
+                    <h2 class="subtitle">検索結果一覧</h2>
+                    <div class="search-results" id="search-results"></div>
+                </div>
+            </div>
+        </div>    
+    </main>
+    
+</body>
+</html>
+
