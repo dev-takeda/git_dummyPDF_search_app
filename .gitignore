@@ -20,3 +20,6 @@ config.json
 
 # SQLiteファイル
 dummy_database.sqlite
+
+# ファイル名作成
+name.py
